@@ -1,83 +1,52 @@
 <?php
-   include('database.php');
-   include("config.php");
-   session_start();
 
-   if($_SERVER["REQUEST_METHOD"] == "POST") {
-      // username and password sent from form
+$host="aqx5w9yc5brambgl.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+$user="asv8nlrt3ji7v1ee";
+$password="zafjp7fo15x2qsek";
+$db="m13a7advxe1eiscn";
 
-      $myusername = mysqli_real_escape_string($db,$_POST['username']);
-      $mypassword = mysqli_real_escape_string($db,$_POST['password']);
+mysql_connect($host,$user,$password);
+mysql_select_db($db);
 
-      $sql = "SELECT id FROM members WHERE username = '$myusername' and password = '$mypassword'";
-      $result = mysqli_query($db,$sql);
-      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      $active = $row['active'];
+if(isset($_POST['username'])){
 
-      $count = mysqli_num_rows($result);
+    $uname=$_POST['username'];
+    $password=$_POST['password'];
 
-      // If result matched $myusername and $mypassword, table row must be 1 row
+    $sql="select * from members where username='".$uname."'AND password='".$password."' limit 1";
 
-      if($count == 1) {
-         session_register("myusername");
-         $_SESSION['login_user'] = $myusername;
+    $result=mysql_query($sql);
 
-         header("Location: http://www.https://digital-collections.herokuapp.com/collection.php");
-      }else {
-         $error = "Your Login Name or Password is invalid";
-      }
-   }
+    if(mysql_num_rows($result)==1){
+        echo " You Have Successfully Logged in";
+        exit();
+    }
+    else{
+        echo " You Have Entered Incorrect Password";
+        exit();
+    }
 
+}
 ?>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Brew457 - Login</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/login.js"></script>
-     <title>Login Page</title>
-
-          <style type = "text/css">
-             body {
-                font-family:Arial, Helvetica, sans-serif;
-                font-size:14px;
-             }
-             label {
-                font-weight:bold;
-                width:100px;
-                font-size:14px;
-             }
-             .box {
-                border:#666666 solid 1px;
-             }
-          </style>
-  </head>
-
-   <body bgcolor = "#FFFFFF">
-
-      <div align = "center">
-         <div style = "width:300px; border: solid 1px #333333; " align = "left">
-            <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
-
-            <div style = "margin:30px">
-
-               <form action = "" method = "post">
-                  <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
-                  <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
-                  <input type = "submit" value = " Submit "/><br />
-               </form>
-
-               <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
-
-            </div>
-
-         </div>
-
-      </div>
-
-   </body>
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Login Form in HTML5 and CSS3</title>
+	<link rel="stylesheet" a href="css\style.css">
+	<link rel="stylesheet" a href="css\font-awesome.min.css">
+</head>
+<body>
+	<div class="container">
+	<img src="image/login.png"/>
+		<form method='POST' action='#'>
+			<div class="form-input">
+				<input type="text" name="text" placeholder="Enter the User Name"/>
+			</div>
+			<div class="form-input">
+				<input type="password" name="password" placeholder="password"/>
+			</div>
+			<input type="submit" type="submit" value="LOGIN" class="btn-login"/>
+		</form>
+	</div>
+</body>
 </html>
