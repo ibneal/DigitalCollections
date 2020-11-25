@@ -1,31 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-
-    "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Jotorres Login Form</title>
-</head>
 <body>
-    <form method="post" action="login.php" >
-        <table border="1" >
-            <tr>
-                <td><label for="users_name">Email</label></td>
-                <td><input type="text"
+<form action="login.php" method="post">
+ <label for="users_name"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="users_name" required>
 
-                  name="users_name" id="users_name"></td>
-            </tr>
-            <tr>
-                <td><label for="users_pass">Password</label></td>
-                <td><input name="users_pass"
+    <label for="users_pass"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="users_pass" required>
 
-                  type="password" id="users_pass"></input></td>
-            </tr>
-            <tr>
-                <td><input type="submit" value="Submit"/>
-                <td><input type="reset" value="Reset"/>
-            </tr>
-        </table>
-    </form>
+    <button type="submit">Login</button>
+</form>
 </body>
 </html>
