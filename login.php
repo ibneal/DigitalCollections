@@ -1,52 +1,49 @@
-<?php
+<?php 
+session_start(); 
+include "db_conn.php";
 
-$host="aqx5w9yc5brambgl.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-$user="asv8nlrt3ji7v1ee";
-$password="zafjp7fo15x2qsek";
-$db="m13a7advxe1eiscn";
+if (isset($_POST['uname']) && isset($_POST['password'])) {
 
-mysql_connect($host,$user,$password);
-mysql_select_db($db);
+	function validate($data){
+       $data = trim($data);
+	   $data = stripslashes($data);
+	   $data = htmlspecialchars($data);
+	   return $data;
+	}
 
-if(isset($_POST['username'])){
+	$uname = validate($_POST['uname']);
+	$pass = validate($_POST['password']);
 
-    $uname=$_POST['username'];
-    $password=$_POST['password'];
+	if (empty($uname)) {
+		header("Location: index.php?error=User Name is required");
+	    exit();
+	}else if(empty($pass)){
+        header("Location: index.php?error=Password is required");
+	    exit();
+	}else{
+		$sql = "SELECT * FROM members WHERE username='$uname' AND password='$pass'";
 
-    $sql="select * from members where username='".$uname."'AND password='".$password."' limit 1";
+		$result = mysqli_query($conn, $sql);
 
-    $result=mysql_query($sql);
-
-    if(mysql_num_rows($result)==1){
-        echo " You Have Successfully Logged in";
-        exit();
-    }
-    else{
-        echo " You Have Entered Incorrect Password";
-        exit();
-    }
-
+		if (mysqli_num_rows($result) === 1) {
+			$row = mysqli_fetch_assoc($result);
+            if ($row['user_name'] === $uname && $row['password'] === $pass) {
+            	$_SESSION['user_name'] = $row['user_name'];
+            	$_SESSION['name'] = $row['name'];
+            	$_SESSION['id'] = $row['id'];
+            	header("Location: collection.php");
+		        exit();
+            }else{
+				header("Location: index.php?error=Incorect User name or password");
+		        exit();
+			}
+		}else{
+			header("Location: index.php?error=Incorect User name or password");
+	        exit();
+		}
+	}
+	
+}else{
+	header("Location: index.php");
+	exit();
 }
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title> Login Form in HTML5 and CSS3</title>
-	<link rel="stylesheet" a href="css\style.css">
-	<link rel="stylesheet" a href="css\font-awesome.min.css">
-</head>
-<body>
-	<div class="container">
-	<img src="image/login.png"/>
-		<form method='POST' action='#'>
-			<div class="form-input">
-				<input type="text" name="text" placeholder="Enter the User Name"/>
-			</div>
-			<div class="form-input">
-				<input type="password" name="password" placeholder="password"/>
-			</div>
-			<input type="submit" type="submit" value="LOGIN" class="btn-login"/>
-		</form>
-	</div>
-</body>
-</html>
