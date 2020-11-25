@@ -1,5 +1,5 @@
 <?php 
-session_start();
+
 $sname= "aqx5w9yc5brambgl.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
 $unmae= "asv8nlrt3ji7v1ee";
 $password = "zafjp7fo15x2qsek";
