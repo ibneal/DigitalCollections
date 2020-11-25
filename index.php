@@ -7,7 +7,7 @@
 <title>Jotorres Login Form</title>
 </head>
 <body>
-    <form method="post" action="validate_login.php" >
+    <form method="post" action="login.php" >
         <table border="1" >
             <tr>
                 <td><label for="users_name">Email</label></td>
