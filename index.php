@@ -1,27 +1,31 @@
-<?php
-// Start the session
-session_start();
-?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 
-<!DOCTYPE html>
+    "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>LOGIN</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Jotorres Login Form</title>
 </head>
 <body>
-     <form action="login.php" method="post">
-     	<h2>LOGIN</h2>
-     	<?php if (isset($_GET['error'])) { ?>
-     		<p class="error"><?php echo $_GET['error']; ?></p>
-     	<?php } ?>
-     	<label>User Name</label>
-     	<input type="text" name="uname" placeholder="User Name"><br>
+    <form method="post" action="validate_login.php" >
+        <table border="1" >
+            <tr>
+                <td><label for="users_name">Email</label></td>
+                <td><input type="text"
 
-     	<label>User Name</label>
-     	<input type="password" name="password" placeholder="Password"><br>
+                  name="users_name" id="users_name"></td>
+            </tr>
+            <tr>
+                <td><label for="users_pass">Password</label></td>
+                <td><input name="users_pass"
 
-     	<button type="submit">Login</button>
-     </form>
+                  type="password" id="users_pass"></input></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit"/>
+                <td><input type="reset" value="Reset"/>
+            </tr>
+        </table>
+    </form>
 </body>
 </html>
