@@ -7,7 +7,7 @@
     $database = ltrim($dbparts['path'],'/');
 
     $uname = $_POST['users_name'];
-    $pword = $_POST['users_name'];
+    $pword = $_POST['users_pass'];
 
     $conn=new mysqli($hostname,$username,$password,$database);
 
