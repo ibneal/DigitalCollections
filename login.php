@@ -22,7 +22,7 @@
          session_register("myusername");
          $_SESSION['login_user'] = $myusername;
 
-         header("location: collection.php");
+         header("Location: http://www.https://digital-collections.herokuapp.com/collection.php");
       }else {
          $error = "Your Login Name or Password is invalid";
       }
