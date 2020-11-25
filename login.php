@@ -1,31 +1,31 @@
-<?php 
+<?php
+    $url = getenv('JAWSDB_URL');
+    $dbparts = parse_url($url);
+    $hostname = $dbparts['host'];
+    $username = $dbparts['user'];
+    $password = $dbparts['pass'];
+    $database = ltrim($dbparts['path'],'/');
 
-$sname= "aqx5w9yc5brambgl.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-$unmae= "asv8nlrt3ji7v1ee";
-$password = "zafjp7fo15x2qsek";
-$db_name = "m13a7advxe1eiscn";
+    $uname = $_POST['users_name'];
+    $pword = $_POST['users_name'];
 
-// Grab User submitted information
-$username = $_POST["users_name"];
-$pass = $_POST["users_pass"];
+    $conn=new mysqli($hostname,$username,$password,$database);
 
-// Connect to the database
-$con = mysql_connect("aqx5w9yc5brambgl.cbetxkdyhwsb.us-east-1.rds.amazonaws.com","asv8nlrt3ji7v1ee","zafjp7fo15x2qsek");
-// Make sure we connected successfully
-if(! $con)
-{
-    die('Connection Failed'.mysql_error());
-}
+    $_SESSION['loggedin']=FALSE;
 
-// Select the database to use
-mysql_select_db("m13a7advxe1eiscn",$con)
+    if($conn->connect_error){
+        die("Connection failed: " . $conn->connect_error);
+    }
 
-$result = mysql_query("SELECT username, password FROM members WHERE username = $username");
+$sql = ("SELECT id, username FROM members WHERE username = '".$uname."' AND password = '".$pword."'");
+$result = $conn->query($sql);
 
-$row = mysql_fetch_array($result);
-
-if($row["username"]==$username && $row["password"]==$pass)
+if($result->num_rows > 0) {
     echo"You are a validated user.";
-else
+    $_SESSION['loggedin']=TRUE;
+    header('Location: collection.php');
+    }
+else{
     echo"Sorry, your credentials are not valid, Please try again.";
+    }
 ?>
