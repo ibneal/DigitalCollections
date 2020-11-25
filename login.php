@@ -1,7 +1,15 @@
 <?php 
-session_start(); 
-include "db_conn.php";
+session_start();
+$sname= "aqx5w9yc5brambgl.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+$unmae= "asv8nlrt3ji7v1ee";
+$password = "zafjp7fo15x2qsek";
+$db_name = "m13a7advxe1eiscn";
 
+$conn = mysqli_connect($sname, $unmae, $password, $db_name);
+
+if (!$conn) {
+	echo "Connection failed!";
+}
 if (isset($_POST['uname']) && isset($_POST['password'])) {
 
 	function validate($data){
@@ -21,19 +29,12 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
         header("Location: index.php?error=Password is required");
 	    exit();
 	}else{
-		$sql = "SELECT * FROM members WHERE username='$uname' AND password='$pass'";
+		$sql = "SELECT Id FROM members WHERE username='{$_POST[uname]}' AND password='{$_POST[password]}';";
 
-		$result = mysqli_query($conn, $sql);
-
-		if (mysqli_num_rows($result) === 1) {
-			$row = mysqli_fetch_assoc($result);
-            if ($row['user_name'] === $uname && $row['password'] === $pass) {
-            	header("Location: collection.php");
-		        exit();
-            }else{
-				header("Location: index.php?error=Incorect login User name or password");
-		        exit();
-			}
+		if ($conn->query($sql) === TRUE){
+                echo "Login success...";
+                $_SESSION['loggedin']=TRUE;
+                header('Location: collection.php');
 		}else{
 			header("Location: index.php?error=Incorect User name or password");
 	        exit();
