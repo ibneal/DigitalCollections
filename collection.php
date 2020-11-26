@@ -1,7 +1,10 @@
 <?php
 session_start();
 include 'database.php';
-include 'check.php';
+if(!(isset($_SESSION['username'])))
+{
+    header("Location: index.php")
+}
  //Put session start at the beginning of the file
 ?>
 <html lang="en">

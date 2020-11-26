@@ -1,8 +1,3 @@
-<?php
-session_start();
-include 'check.php';
-?>
-
 <html>
 
 <head>
