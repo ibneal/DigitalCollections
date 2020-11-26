@@ -1,5 +1,4 @@
 <?php
-    session_start();
     $url = getenv('JAWSDB_URL');
     $dbparts = parse_url($url);
     $hostname = $dbparts['host'];
@@ -23,6 +22,7 @@ $result = $conn->query($sql);
 
 if($result->num_rows > 0) {
     echo"You are a validated user.";
+    session_start();
     $_SESSION['loggedin']=TRUE;
     $_SESSION['username'] = $uname;
     header('Location: collection.php');

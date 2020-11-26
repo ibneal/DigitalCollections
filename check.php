@@ -1,7 +1,7 @@
 <?php
 session_start();
-if(!(isset($_SESSION['username'])))
+if(!($_SESSION['loggedin']) == True ))
 {
-    header("Location:index.php")
+    header("Location: https://digital-collections.herokuapp.com/index.php")
 }
 ?>
