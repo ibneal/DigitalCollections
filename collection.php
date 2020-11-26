@@ -1,9 +1,8 @@
 <?php
 session_start();
 include 'database.php';
-if(!$_SESSION['username']){
-    header('Location: index.php')
-}
+if(!$_SESSION['loggedin']){
+    header('Location: index.php'); }
  //Put session start at the beginning of the file
 ?>
 <html lang="en">
