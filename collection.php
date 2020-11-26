@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'database.php';
-if(!(isset($_SESSION['username'])))
+if(!$_SESSION['username'])
 {
     header("Location: index.php")
 }
