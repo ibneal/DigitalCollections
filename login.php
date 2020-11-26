@@ -29,5 +29,6 @@ if($result->num_rows > 0) {
     }
 else{
     echo"Sorry, your credentials are not valid, Please try again.";
+    header('Refresh: 5; URL=https://digital-collections.herokuapp.com/');
     }
 ?>
