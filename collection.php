@@ -1,6 +1,8 @@
 <?php
-session_start();//Put session start at the beginning of the file
+session_start();
 include 'database.php';
+include 'check.php';
+ //Put session start at the beginning of the file
 ?>
 <html lang="en">
   <head>
@@ -19,7 +21,6 @@ include 'database.php';
               if ($_SESSION['loggedin']==True){
                 echo '<li><a href="./collections.php">Collections</a></li>';
               }?>
-        <li><a href="./addItem.php">Add Item</a></li>
               <?php
                     if ($_SESSION['loggedin']==True){
                       echo '<li><a href="./addItem.php">Add Item</a></li>';
