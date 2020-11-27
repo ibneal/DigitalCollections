@@ -3,6 +3,7 @@ session_start();
 include 'database.php';
 if(!$_SESSION['loggedin']){
     header('Location: index.php'); }
+    $current_user = $_SESSION['username'];
  //Put session start at the beginning of the file
 ?>
 <html lang="en">
@@ -47,7 +48,7 @@ if(!$_SESSION['loggedin']){
               <th>notes</th>
             </tr>
             <?php
-              echo getCollections();
+              echo getCollections($current_user);
           ?>
           <table>
         </div>
