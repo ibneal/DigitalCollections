@@ -26,12 +26,12 @@ if(!$_SESSION['loggedin']){
                       echo '<li><a href="./addItem.php">Add Item</a></li>';
                     }?>
         <li><a href="./contact.php">About Us</a></li>
-        <li> <button><a href="logout.php">Logout</a></button></li>
+
 
       </ul>
     <script src='./js/search.js'></script>
     <div class="card">
-      <h2 class="card-header text-center">Beer List</h2>
+      <h2 class="card-header text-center">Items in your Digital Collection</h2>
       <div class="row">
         <div class="col-md"></div>
         <div class="col-md-9">
@@ -39,7 +39,7 @@ if(!$_SESSION['loggedin']){
         <button class="cancelbtn" onclick="document.getElementById('id02').style.display='block'">Remove Item</button>
         <button class="logbutton" onclick="document.getElementById('id03').style.display='block'">Update Item</button>
         <input type="text" id="search" onkeyup="search()" placeholder="Search for items.." title="Type in a name">
-        <table id="beer">
+        <table id="collection">
             <tr>
               <th>id</th>
               <th>name</th>

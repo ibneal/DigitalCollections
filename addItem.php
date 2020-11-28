@@ -28,7 +28,7 @@ $current_user = $_SESSION['username'];
                            echo '<li><a href="./addItem.php">Add Item</a></li>';
                          }?>
              <li><a href="./contact.php">About Us</a></li>
-             <li> <button><a href="logout.php">Logout</a></button></li>
+             <button><a href="logout.php">Logout</a></button>
     </ul>
 
 <form action="addItem_helper.php" method="post">
