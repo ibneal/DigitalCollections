@@ -17,7 +17,8 @@
     if($conn->connect_error){
         die("Connection failed: " . $conn->connect_error);
     }
-    $sql = "INSERT INTO collection (userId, name, location, notes) VALUES ('$current_user', '$item_name', '$item_location', '$item_notes') ";
+
+    $sql = "INSERT INTO collection (userId, name, location, notes) VALUES ('".$current_user."', '".$item_name."', '".$item_location."', '".$item_notes."');";
 
     $retval = mysql_query($sql,$conn);
 
