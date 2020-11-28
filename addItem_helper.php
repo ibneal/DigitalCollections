@@ -10,7 +10,7 @@
     $current_user = $_SESSION['username'];
     $item_name = $_POST['item_name'];
     $item_location = $_POST['item_location'];
-    $item_notes = $_POST['item_notes']
+    $item_notes = $_POST['item_notes'];
 
     $conn = new mysqli($hostname,$username,$password,$database);
 
