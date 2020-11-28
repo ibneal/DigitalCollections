@@ -9,7 +9,7 @@ function getCollections(){
     $password = $dbparts['pass'];
     $database = ltrim($dbparts['path'],'/');
 
-    $current_user = $_SESSION['username']
+    $current_user = $_SESSION['username'];
 
     $conn=new mysqli($hostname,$username,$password,$database);
         
