@@ -12,7 +12,7 @@
     $item_location = $_POST['item_location'];
     $item_notes = $_POST['item_notes']
 
-    $conn=new mysqli($hostname,$username,$password,$database);
+    $conn = new mysqli($hostname,$username,$password,$database);
 
     if($conn->connect_error){
         die("Connection failed: " . $conn->connect_error);
@@ -20,13 +20,11 @@
 
     $sql = "INSERT INTO collection (userId, name, location, notes) VALUES ('".$current_user."', '".$item_name."', '".$item_location."', '".$item_notes."');";
 
-    $retval = mysql_query($sql,$conn);
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
-       if(! $retval ) {
-          die('Could not enter data: ' . mysql_error());
-       }
-
-       echo "Entered data successfully\n";
-
-       mysql_close($conn);
+$conn->close();
 ?>
