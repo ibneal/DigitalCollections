@@ -48,8 +48,4 @@ $current_user = $_SESSION['username'];
 </form>
 
   </body>
-</html>';
-}
-else{
-  echo '<p>Access to this page is forbidden.</p><br><p>Did you mean to <a href="./login.php">login?</a></p>';
-}
+</html>
