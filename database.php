@@ -21,16 +21,15 @@ function getCollections(){
     $result = $conn->query($sql);
 
     if($result->num_rows > 0) {
-        echo "<table>";
-
-        while($row = mysql_fetch_array($result)){   
+        $count=0;
+        while($row = $result->fetch_assoc()){
         echo "<tr><td>" . $row['id'] . "</td>
         <td>" . $row['name'] . "</td>
         <td>" . $row['location'] . "</td>
         <td>" . $row['notes'] . "</td>
         </tr>";
+        $count=$count+1;
         }
-        echo "</table>";
     }else {
       echo "0 results";
     }
