@@ -16,7 +16,7 @@ function getCollections(){
     if($conn->connect_error){
         die("Connection failed: " . $conn->connect_error);
     }
-    $sql = "SELECT * FROM Collections WHERE userId = '".$current_user."'";
+    $sql = "SELECT id, name, location, notes FROM Collections WHERE userId = '".$current_user."'";
     
     $result = $conn->query($sql);
 
