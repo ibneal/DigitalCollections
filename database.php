@@ -1,6 +1,7 @@
 <?php
 
-function getCollections($current_user){
+function getCollections(){
+    session_start();
     $url = getenv('JAWSDB_URL');
     $dbparts = parse_url($url);
     $hostname = $dbparts['host'];
@@ -8,12 +9,14 @@ function getCollections($current_user){
     $password = $dbparts['pass'];
     $database = ltrim($dbparts['path'],'/');
 
+    $current_user = $_SESSION['username']
+
     $conn=new mysqli($hostname,$username,$password,$database);
         
     if($conn->connect_error){
         die("Connection failed: " . $conn->connect_error);
     }
-    $sql = "SELECT * FROM Collections WHERE userId = '$current_user'";
+    $sql = "SELECT * FROM Collections WHERE userId = '".$current_user."'";
     
     $result = $conn->query($sql);
 
