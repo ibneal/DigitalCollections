@@ -16,7 +16,7 @@
 	</div>
 	</div>
 
-<div class="text-center" contenteditable="true">
+<div class="text-center">
 <div class="jumbotron">
 <form action="login.php" method="post">
 <div class="form-group">
