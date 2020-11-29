@@ -1,6 +1,11 @@
 <?php
 session_start();
+session_unset();
 session_destroy();
-echo "You have been logged out"
-header('Refresh: 5; URL=https://digital-collections.herokuapp.com/');
+ob_start();
+header("location:index.php");
+ob_end_flush();
+include 'index.php';
+exit();
+
 ?>
