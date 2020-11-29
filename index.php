@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if($_SESSION['loggedin'] == True){
+    header('Location: collection.php'); }
+$current_user = $_SESSION['username'];
+
+ //Put session start at the beginning of the file
+?>
+
 <!DOCTYPE html>
 
 <head>
