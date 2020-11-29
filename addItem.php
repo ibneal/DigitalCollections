@@ -27,10 +27,11 @@ $current_user = $_SESSION['username'];
                          if ($_SESSION['loggedin']==True){
                            echo '<li><a href="./addItem.php">Add Item</a></li>';
                          }?>
-             <li><a href="./contact.php">About Us</a></li>
+             <li><a href="./about.php">About Us</a></li>
              <button><a href="logout.php">Logout</a></button>
     </ul>
-
+<div class="text-center">
+<div class="col-md">
 <form action="addItem_helper.php" method="post">
 <div class="form-group">
  <label for="item_name"><b>Item Name</b></label>
@@ -46,6 +47,7 @@ $current_user = $_SESSION['username'];
 </div>
     <button type="submit" class="btn btn-primary">Add item</button>
 </form>
-
+</div>
+</div>
   </body>
 </html>

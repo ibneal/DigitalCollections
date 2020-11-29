@@ -33,6 +33,7 @@ $current_user = $_SESSION['username'];
         <div class="jumbotron" contenteditable="true">
 			<h2>About Digital Collections</h2>
 			<p>Digital Collections is a free application that can be used on any browser. Created by Neal Bhalodia as a project for Software Engineering at Towson University. The application runs on PHP and SQL on the backend and with HTML and Bootstrap on the front end. It is meant to be a way for users to create digital collections of products that they have. Once you register you can begin to use the application. Simply add items to your digital collections and then view them in on the collections page. You can also remove items and modify listings.</p>
+            <p>Please contact nealbhalodia@gmail.com for any suggestions or questions.</p>
 		</div>
   </body>
 </html>
