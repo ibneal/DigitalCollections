@@ -25,9 +25,7 @@ if(!$_SESSION['loggedin']){
                     if ($_SESSION['loggedin']==True){
                       echo '<li><a href="./addItem.php">Add Item</a></li>';
                     }?>
-        <li><a href="./contact.php">About Us</a></li>
-
-
+        <li><a href="./about.php">About Us</a></li>
       </ul>
     <script src='./js/search.js'></script>
     <div class="card">
@@ -39,7 +37,7 @@ if(!$_SESSION['loggedin']){
         <button class="cancelbtn" onclick="document.getElementById('id02').style.display='block'">Remove Item</button>
         <button class="logbutton" onclick="document.getElementById('id03').style.display='block'">Update Item</button>
         <input type="text" id="search" onkeyup="search()" placeholder="Search for items.." title="Type in a name">
-        <table id="collection">
+        <table class="table" id="collection">
             <tr>
               <th>id</th>
               <th>name</th>
