@@ -30,7 +30,7 @@ $current_user = $_SESSION['username'];
              <li><a href="./about.php">About Us</a></li>
              <button><a href="logout.php">Logout</a></button>
     </ul>
-<div class="text-center">
+<div class="row justify-content-center">
 <div class="col-md-9">
 <form action="addItem_helper.php" method="post">
 <div class="form-group">
