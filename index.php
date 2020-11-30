@@ -28,6 +28,7 @@ $current_user = $_SESSION['username'];
 
 <div class="text-center">
 <div class="col-md-9">
+<div class="centerdiv">
 <form action="login.php" method="post">
 <div class="form-group">
  <label for="users_name"><b>Username</b></label>
@@ -38,6 +39,7 @@ $current_user = $_SESSION['username'];
     <input type="password" class="form-control" placeholder="Enter Password" name="users_pass" required>
 </div>
     <button type="submit" class="btn btn-primary">Login</button>
+</div>
 </form>
 </div>
 </div>
