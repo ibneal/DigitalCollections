@@ -28,7 +28,7 @@ $current_user = $_SESSION['username'];
                            echo '<li><a href="./addItem.php">Add Item</a></li>';
                          }?>
              <li><a href="./about.php">About Us</a></li>
-             <button class="btn btn-danger"><a href="logout.php">Logout</a></button>
+             <li><a href="logout.php">Logout</a></li>
     </ul>
 <div class="row justify-content-center">
 <div class="col-md-9">

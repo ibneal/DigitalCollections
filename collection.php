@@ -26,7 +26,7 @@ if(!$_SESSION['loggedin']){
                       echo '<li><a href="./addItem.php">Add Item</a></li>';
                     }?>
         <li><a href="./about.php">About Us</a></li>
-        <button class="btn btn-danger"><a href="logout.php">Logout</a></button>
+        <li><a href="logout.php">Logout</a></li>
       </ul>
     <script src='./js/search.js'></script>
     <div class="card">
