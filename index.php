@@ -40,8 +40,9 @@ $current_user = $_SESSION['username'];
     <button type="submit" class="btn btn-primary">Login</button>
 </form>
 <br>
-<a href="">Register</a>
+
 </div>
+<a href="">Register</a>
 </div>
 
 
