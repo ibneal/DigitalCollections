@@ -27,7 +27,7 @@ $current_user = $_SESSION['username'];
 	</div>
 
 <div class="text-center">
-<div class=d-flex justify-content-center">
+<div class="row justify-content-center">
 <form action="login.php" method="post">
 <div class="form-group">
  <label for="users_name"><b>Username</b></label>

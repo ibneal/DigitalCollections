@@ -30,7 +30,7 @@ if(!$_SESSION['loggedin']){
     <script src='./js/search.js'></script>
     <div class="card">
       <h2 class="card-header text-center">Items in your Digital Collection</h2>
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-md-4">
         <button class="btn btn-secondary" onclick="location.href = 'https://digital-collections.herokuapp.com/addItem.php';">Add Item</button>
         <button class="btn btn-danger" onclick="">Remove Item</button>
