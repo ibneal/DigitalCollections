@@ -83,6 +83,10 @@ button:hover {
     opacity:1;
 }
 
+.centerdiv{
+    margin: 0 auto;
+}
+
 /* Extra styles for the cancel button */
 .cancelbtn {
     padding: 14px 20px;
