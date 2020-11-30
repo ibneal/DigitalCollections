@@ -28,7 +28,7 @@ $current_user = $_SESSION['username'];
                            echo '<li><a href="./addItem.php">Add Item</a></li>';
                          }?>
              <li><a href="./contact.php">About Us</a></li>
-             <button><a href="logout.php">Logout</a></button>
+             <button class="btn btn-danger"><a href="logout.php">Logout</a></button>
     </ul>
         <div class="jumbotron" contenteditable="true">
 			<h2>About Digital Collections</h2>
