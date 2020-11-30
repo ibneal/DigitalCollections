@@ -33,7 +33,7 @@ if(!$_SESSION['loggedin']){
       <div class="row">
         <div class="col-md"></div>
         <div class="col-md-9">
-        <button class="signupbtn" onclick="document.getElementById('id03').style.display='block'">Add Item</button>
+        <button class="signupbtn" onclick="location.href = 'https://digital-collections.herokuapp.com/addItem.php';">Add Item</button>
         <button class="cancelbtn" onclick="document.getElementById('id02').style.display='block'">Remove Item</button>
         <button class="logbutton" onclick="document.getElementById('id03').style.display='block'">Update Item</button>
         <input type="text" id="search" onkeyup="search()" placeholder="Search for items.." title="Type in a name">
