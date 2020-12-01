@@ -71,10 +71,11 @@ if(!$_SESSION['loggedin']){
         <div class="card">
           <h2 class="card-header text-center">Item List</h2>
           <div class="row">
-            <div class="col-md">
+            <div class="col-md" align="center">
             <button class="btn btn-primary" onclick="document.getElementById('addItemModal').style.display='block'">Add Item</button>
             <button class="btn btn-danger" onclick="document.getElementById('removeItemModal').style.display='block'">Remove Item</button>
             <input type="text" id="search" onkeyup="search()" placeholder="Search by item.." title="Type in a name">
+        <div class="container-fluid">
         <table class="table" id="results">
             <tr>
               <th>id</th>
@@ -87,6 +88,7 @@ if(!$_SESSION['loggedin']){
               echo getCollections();
           ?>
           <table>
+          </div>
         </div>
       </div>
   </body>
