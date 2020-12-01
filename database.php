@@ -3,12 +3,12 @@
 if (isset($_POST['action'])) {
     switch($_POST['action']) {
         case 'addItem':
-            addBeer();
-            header("location:beer.php");
+            addItem();
+            header("location:collection.php");
             break;
-        case 'removeBeer':
-            removeBeer();
-            header("location:beer.php");
+        case 'removeItem':
+            removeItem();
+            header("location:collection.php");
             break;
         }
 }
