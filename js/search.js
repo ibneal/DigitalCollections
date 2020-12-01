@@ -1,7 +1,7 @@
 function search() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("search");
-    filter = input.value.toUpperCase();
+    filter = input.value;
     table = document.getElementById("results");
     tr = table.getElementsByTagName("tr");
     th = table.getElementsByTagName("th");
@@ -13,7 +13,7 @@ function search() {
             td = tr[i].getElementsByTagName("td")[j];
             if (td) {
                 txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                if (txtValue.indexOf(filter) > -1) {
                     count=count+1;
                 }
             }
