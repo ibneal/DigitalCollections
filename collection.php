@@ -28,16 +28,54 @@ if(!$_SESSION['loggedin']){
         <li><a href="./about.php">About Us</a></li>
         <li><a href="logout.php">Logout</a></li>
       </ul>
-    <script src='./js/search.js'></script>
-    <div class="card">
-      <h2 class="card-header text-center">Items in your Digital Collection</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-4">
-        <button class="btn btn-secondary" onclick="location.href = 'https://digital-collections.herokuapp.com/addItem.php';">Add Item</button>
-        <button class="btn btn-danger" onclick="">Remove Item</button>
-        <button class="btn btn-secondary" onclick="">Update Item</button>
-        <input type="text" id="search" onkeyup="search()" placeholder="Search for items.." title="Type in a name">
-        <table class="table" id="collection">
+    <div id="addItemModal" class="modal">
+              <form class="modal-content" action="database.php" method="post">
+                <span onclick="document.getElementById('addItemModal').style.display='none'" class="close" title="Close Modal">CLOSE</span>
+                <div class="container">
+                  <h1>Add a New Item</h1>
+                  <hr>
+                  <input type="hidden" name="action" value="addItem"/>
+                  <label for="item"><b>Name of Item</b></label>
+                    <input type="text" placeholder="Enter Item Name" name="item" required/>
+                    <label for="location"><b>Location of Item</b></label>
+                    <input type="text" placeholder="Enter Item Location" name="location" required/>
+                    <label for="notes"><b>Notes</b></label>
+                    <input type="text" placeholder="Enter Notes" name="notes" required/>
+
+                    <div class="clearfix">
+                      <button type="button" onclick="document.getElementById('addItemModal').style.display='none'" class="cancelbtn">Cancel</button>
+                      <button type="submit" class="newItem">Add Item</button>
+                    </div>
+                </div>
+              </form>
+            </div>
+
+        <div id="removeItemModal" class="modal">
+          <form class="modal-content" action="database.php" method="post">
+            <span onclick="document.getElementById('removeItemModal').style.display='none'" class="close" title="Close Modal">CLOSE</span>
+            <div class="container">
+              <h1>Remove a Item</h1>
+              <hr>
+              <input type="hidden" name="action" value="removeItem"/>
+              <label for="ritem"><b>Name of Item</b></label>
+              <input type="text" placeholder="Enter Item Name" name="ritem" required/>
+              <div class="clearfix">
+                <button type="button" onclick="document.getElementById('removeItemModal').style.display='none'" class="cancelbtn">Cancel</button>
+                <button type="submit" class="newBeer">Remove Item</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <script src='./js/search.js'></script>
+        <div class="card">
+          <h2 class="card-header text-center">Item List</h2>
+          <div class="row">
+            <div class="col-md">
+            <button class="btn btn-primary" onclick="document.getElementById('addItemModal').style.display='block'">Add Item</button>
+            <button class="btn btn-danger" onclick="document.getElementById('removeItemModal').style.display='block'">Remove Item</button>
+            <input type="text" id="search" onkeyup="search()" placeholder="Search by item.." title="Type in a name">
+        <table class="table" id="results">
             <tr>
               <th>id</th>
               <th>name</th>

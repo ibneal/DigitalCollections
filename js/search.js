@@ -2,7 +2,7 @@ function search() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("search");
     filter = input.value.toUpperCase();
-    table = document.getElementById("collection");
+    table = document.getElementById("results");
     tr = table.getElementsByTagName("tr");
     th = table.getElementsByTagName("th");
 
