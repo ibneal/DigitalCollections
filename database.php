@@ -90,7 +90,7 @@ function removeItem(){
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "DELETE FROM collection WHERE Id = (SELECT Id FROM collection WHERE name='${item}');";
+    $sql = "DELETE FROM collection WHERE Id = '${item}';";
 
     if ($conn->query($sql) === TRUE){
         return 'Record removed successfully';
